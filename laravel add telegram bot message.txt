@@ -1,0 +1,64 @@
+Step 1: create Telegram Bot
+- BotFather search
+- /start
+- /newbot
+- enter bot name (sabbir)
+- enter bot username (sabbir_bot)
+- copy the id:token (8642851260:AAH_IfenmHlZYCEnC7mI800u4PsF2YxgFeI)
+- link: https://t.me/sabbir_bot
+
+https://api.telegram.org/bot8642851260:AAH_IfenmHlZYCEnC7mI800u4PsF2YxgFeI/getUpdates
+https://api.telegram.org/bot8642851260:AAH_IfenmHlZYCEnC7mI800u4PsF2YxgFeI/getMe
+https://api.telegram.org/bot8642851260:AAH_IfenmHlZYCEnC7mI800u4PsF2YxgFeI/sendMessage?chat_id=5929756816&text=hi&parse_mode=HTML
+
+Step 2: make a Telegram Channel
+https://t.me/+IUL7QwxoQEhiOTI1
+
+Step 3: Add the bot to the channel as an admin.
+
+Step 4: .env
+--------------------------------------------------------------------------------
+TELEGRAM_BOT_TOKEN="8642851260:AAH_IfenmHlZYCEnC7mI800u4PsF2YxgFeI"
+TELEGRAM_CHANNEL_ID=-1003564620472
+--------------------------------------------------------------------------------
+Step 5: config/service.php
+--------------------------------------------------------------------------------
+'telegram' => [
+   'token' => env('TELEGRAM_BOT_TOKEN'),
+    'channel' => env('TELEGRAM_CHANNEL_ID'),
+ ]
+--------------------------------------------------------------------------------
+Step 6: routes/api.php
+--------------------------------------------------------------------------------
+use App\Services\TelegramService;
+Route::get('telegram/messages', function () {
+    $telegram = new TelegramService();
+    $telegram->sendMessage("hi");
+});
+--------------------------------------------------------------------------------
+Step 7: app/Services/TelegramService.php
+--------------------------------------------------------------------------------
+<?php
+namespace App\Services;
+
+use Illuminate\Support\Facades\Http;
+
+class TelegramService
+{
+    public function sendMessage($message)
+    {
+        $token = config('services.telegram.token');
+        $chatId = config('services.telegram.channel');
+
+        $url = "https://api.telegram.org/bot{$token}/sendMessage";
+
+        Http::post($url, [
+            'chat_id' => $chatId,
+            'text' => $message,
+            'parse_mode' => 'HTML'
+        ]);
+    }
+}
+--------------------------------------------------------------------------------
+
+
