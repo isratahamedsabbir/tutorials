@@ -3,23 +3,23 @@ Step 1: create Telegram Bot
 - /start
 - /newbot
 - enter bot name (sabbir)
-- enter bot username (sabbir_bot)
-- copy the id:token (8642851260:AAH_IfenmHlZYCEnC7mI800u4PsF2YxgFeI)
-- link: https://t.me/sabbir_bot
+- enter bot username (ahamedsabbir_bot)
+- copy the id:token (8658842250:AAEelUGAM-l6zX_6KanN-7RtFcQCPKwJb7s)
+- link: https://t.me/ahamedsabbir_bot
 
-https://api.telegram.org/bot8642851260:AAH_IfenmHlZYCEnC7mI800u4PsF2YxgFeI/getUpdates
-https://api.telegram.org/bot8642851260:AAH_IfenmHlZYCEnC7mI800u4PsF2YxgFeI/getMe
-https://api.telegram.org/bot8642851260:AAH_IfenmHlZYCEnC7mI800u4PsF2YxgFeI/sendMessage?chat_id=5929756816&text=hi&parse_mode=HTML
+https://api.telegram.org/bot8658842250:AAEelUGAM-l6zX_6KanN-7RtFcQCPKwJb7s/getUpdates
+https://api.telegram.org/bot8658842250:AAEelUGAM-l6zX_6KanN-7RtFcQCPKwJb7s/getMe
+https://api.telegram.org/bot8658842250:AAEelUGAM-l6zX_6KanN-7RtFcQCPKwJb7s/sendMessage?chat_id=5929756816&text=hi&parse_mode=HTML
 
 Step 2: make a Telegram Channel
-https://t.me/+IUL7QwxoQEhiOTI1
+https://t.me/+5Zmb5Aj-n-44ZjJl
 
 Step 3: Add the bot to the channel as an admin.
 
 Step 4: .env
 --------------------------------------------------------------------------------
-TELEGRAM_BOT_TOKEN="8642851260:AAH_IfenmHlZYCEnC7mI800u4PsF2YxgFeI"
-TELEGRAM_CHANNEL_ID=-1003564620472
+TELEGRAM_BOT_TOKEN="8658842250:AAEelUGAM-l6zX_6KanN-7RtFcQCPKwJb7s"
+TELEGRAM_CHANNEL_ID=-1003529029693
 --------------------------------------------------------------------------------
 Step 5: config/service.php
 --------------------------------------------------------------------------------
