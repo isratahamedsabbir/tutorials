@@ -30,35 +30,18 @@ Step 5: config/service.php
 --------------------------------------------------------------------------------
 Step 6: routes/api.php
 --------------------------------------------------------------------------------
-use App\Services\TelegramService;
-Route::get('telegram/messages', function () {
-    $telegram = new TelegramService();
-    $telegram->sendMessage("hi");
-});
---------------------------------------------------------------------------------
-Step 7: app/Services/TelegramService.php
---------------------------------------------------------------------------------
-<?php
-namespace App\Services;
-
 use Illuminate\Support\Facades\Http;
+Route::get('telegram/messages', function () {
+    $token = config('services.telegram.token');
+    $chatId = config('services.telegram.channel');
 
-class TelegramService
-{
-    public function sendMessage($message)
-    {
-        $token = config('services.telegram.token');
-        $chatId = config('services.telegram.channel');
+    $url = "https://api.telegram.org/bot{$token}/sendMessage";
 
-        $url = "https://api.telegram.org/bot{$token}/sendMessage";
-
-        Http::post($url, [
-            'chat_id' => $chatId,
-            'text' => $message,
-            'parse_mode' => 'HTML'
-        ]);
-    }
-}
---------------------------------------------------------------------------------
+    Http::post($url, [
+        'chat_id' => $chatId,
+        'text' => "hello from laravel",
+        'parse_mode' => 'HTML'
+    ]);
+});
 
 
