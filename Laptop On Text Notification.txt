@@ -13,8 +13,32 @@ Step 2: Get Chat ID (Post ID)
 https://api.telegram.org/bot8780294445:AAGgz5F3vB0AhSYYOg40rFQ4NhZdHsDIAC8/getUpdates
 chat_id=5929756816
 
-step-3:- python invironment setup
-step-4:- package install
-step-5:- make a bat file in autostart folder
-step-6:- py to exe make
-step-7:- exe file set in autostart folder 
+step-3:- Python Environment Setup
+python --version
+python -m pip install requests
+
+step-4:- py to exe
+python -m pip install pyinstaller
+python -m PyInstaller --onefile --noconsole send-text.py
+
+step-5:- Win+r -> shell:startup -> past the bat or exe file
+
+
+send-text.py
+--------------------------------------------
+import requests
+
+# Telegram Bot API
+url = "https://api.telegram.org/bot8780294445:AAGgz5F3vB0AhSYYOg40rFQ4NhZdHsDIAC8/sendMessage"
+
+data = {
+    "chat_id": "5929756816",
+    "text": "💻 Your laptop is ON form office.",
+    "parse_mode": "HTML"
+}
+
+try:
+    requests.post(url, data=data)
+except:
+    pass
+--------------------------------------------
