@@ -1,0 +1,20 @@
+step-1:- create a telegram bot 
+--Open Telegram.
+--Go to Telegram and search for BotFather.
+--Open BotFather and type /start.
+--Then type /newbot.
+--Give Bot name (eg: LaptopNotifierBot)
+--Give Username (eg: laptop_notifier_bot_sabbir_bot)
+--BotFather will give you a Token.
+t.me/laptop_notifier_bot_sabbir_bot
+8780294445:AAGgz5F3vB0AhSYYOg40rFQ4NhZdHsDIAC8
+
+Step 2: Get Chat ID (Post ID)
+https://api.telegram.org/bot8780294445:AAGgz5F3vB0AhSYYOg40rFQ4NhZdHsDIAC8/getUpdates
+chat_id=5929756816
+
+step-3:- python invironment setup
+step-4:- package install
+step-5:- make a bat file in autostart folder
+step-6:- py to exe make
+step-7:- exe file set in autostart folder 
